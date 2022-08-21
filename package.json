@@ -1,0 +1,31 @@
+{
+  "name": "fastapi-python-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "check": "black -t py310 --check . && mypy . && pylint **/*.py",
+    "serve": "uvicorn src.main:app --port 5000 --reload"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "**/*.py": [
+      "black -t py310 --check",
+      "mypy",
+      "pylint"
+    ],
+    "**/*.{js,jsx,ts,tsx,json,scss,css,md}": [
+      "prettier --check"
+    ]
+  }
+}
